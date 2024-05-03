@@ -30,29 +30,57 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Center(
-            child: Column(children: [
-          Container(
-              color: AppColors.appBarContainer,
-              height: 250,
-              width: 300,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
+            child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  Icon(size: 100, color: Colors.green, Icons.directions),
-                  Text("Faça uma busca",
+              Text("Fast Location",
+                  style: TextStyle(
+                      color: Colors.green,
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold)),
+              Container(
+                  color: AppColors.appBarContainer,
+                  height: 250,
+                  width: 300,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Icon(size: 100, color: Colors.green, Icons.directions),
+                      Text("Faça uma busca",
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 30,
+                              fontWeight: FontWeight.bold))
+                    ],
+                  )),
+              ElevatedButton(
+                  onPressed: null,
+                  style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(Colors.green),
+                      padding: MaterialStateProperty.all<EdgeInsets>(
+                          EdgeInsets.all(20))),
+                  child: Text("Localizar endereço",
+                      style: TextStyle(color: Colors.white, fontSize: 10))),
+              Row(
+                children: [
+                  Icon(size: 20, color: Colors.green, Icons.place),
+                  Text("Últimas localizações",
                       style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 30,
+                          color: Colors.green,
+                          fontSize: 20,
                           fontWeight: FontWeight.bold))
                 ],
-              )),
-          ElevatedButton(
-              onPressed: null,
-              style: ElevatedButton.styleFrom(primary: Colors.green),
-              child: Text("Localizar endereço",
-                  style: TextStyle(color: Colors.white, fontSize: 10)))
-        ])),
+                mainAxisAlignment: MainAxisAlignment.center,
+              ),
+              Container(
+                  child: Padding(
+                      padding: EdgeInsets.all(80),
+                      child: Column(children: [
+                        Icon(size: 20, color: Colors.green, Icons.place_sharp)
+                      ], mainAxisAlignment: MainAxisAlignment.spaceBetween)),
+                  color: Colors.white)
+            ])),
         backgroundColor: AppColors.appPageBackground);
   }
 }

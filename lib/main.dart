@@ -4,6 +4,7 @@ import 'package:fast_location/src/modules/initial/page/initial_page.dart';
 import 'package:fast_location/src/routes/app_router.dart';
 import 'package:fast_location/src/shared/storage/hive_config.dart';
 import 'package:flutter/material.dart';
+import 'package:path/path.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -25,7 +26,7 @@ class App extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       routes: {
         AppRouter.home: (context) => const HomePage(),
-        AppRouter.history: (context) => const HistoryPage(),
+        AppRouter.history: (context) => const HistoryPage()
       },
     );
   }

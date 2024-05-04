@@ -1,21 +1,23 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'dart:html';
+
 import 'package:flutter/material.dart';
+import 'package:fast_location/src/modules/home/model/search.dart';
+import 'package:search_cep/search_cep.dart';
 
-import 'package:fast_location/src/modules/home/model/address_model.dart';
+class Search extends StatefulWidget {
+  final Search address;
 
-class SearchAddress extends StatefulWidget {
-  final AddressModel address;
-
-  const SearchAddress({
+  const Search({
     Key? key,
     required this.address,
   }) : super(key: key);
 
   @override
-  State<SearchAddress> createState() => _SearchAddressState();
+  State<Search> createState() => _SearchAddressState();
 }
 
-class _SearchAddressState extends State<SearchAddress> {
+class _SearchAddressState extends State<Search> {
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -47,7 +49,7 @@ class _SearchAddressState extends State<SearchAddress> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              Text(widget.address.publicPlace)
+              Text(widget.address.localidade)
             ],
           ),
           const SizedBox(height: 10),
@@ -61,10 +63,10 @@ class _SearchAddressState extends State<SearchAddress> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              Text(widget.address.neighborhood)
+              Text(widget.address.bairro)
             ],
           ),
-          if (widget.address.complement != '')
+          if (widget.address.complemento != '')
             Padding(
               padding: const EdgeInsets.only(top: 10),
               child: Row(
@@ -77,7 +79,7 @@ class _SearchAddressState extends State<SearchAddress> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  Text(widget.address.complement ?? '')
+                  Text(widget.address.complemento ?? '')
                 ],
               ),
             ),
@@ -92,7 +94,7 @@ class _SearchAddressState extends State<SearchAddress> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              Text('${widget.address.city}/${widget.address.state}')
+              Text('${widget.address.localidade}/${widget.address.uf}')
             ],
           ),
           const SizedBox(height: 10),

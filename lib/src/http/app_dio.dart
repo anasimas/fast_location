@@ -7,7 +7,7 @@ mixin AppDio {
 
     final Map<String, String> headers = <String, String>{};
 
-    dio.options = BaseOptions();
+    dio.options = BaseOptions(baseUrl: 'https://viacep.com.br');
     dio.options.receiveTimeout = 30000;
     dio.options.sendTimeout = 15000;
     dio.options.headers = headers;

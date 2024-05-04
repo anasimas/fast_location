@@ -19,9 +19,10 @@ dependencies:
   path_provider: ^2.0.2
   path_provider_android: ^2.0.14
   path_provider_ios: ^2.0.9
-  map_launcher: ^2.2.1+1
+  map_launcher: ^2.2.1+1  
+  search_cep: ^4.0.2
   geocoding: ^2.1.1
-
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -1,23 +1,21 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'dart:html';
-
 import 'package:flutter/material.dart';
-import 'package:fast_location/src/modules/home/model/search.dart';
-import 'package:search_cep/search_cep.dart';
 
-class Search extends StatefulWidget {
-  final Search address;
+import 'package:fast_location/src/modules/home/model/address_model.dart';
 
-  const Search({
+class SearchAddress extends StatefulWidget {
+  final AddressModel address;
+
+  const SearchAddress({
     Key? key,
     required this.address,
   }) : super(key: key);
 
   @override
-  State<Search> createState() => _SearchAddressState();
+  State<SearchAddress> createState() => _SearchAddressState();
 }
 
-class _SearchAddressState extends State<Search> {
+class _SearchAddressState extends State<SearchAddress> {
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -49,7 +47,7 @@ class _SearchAddressState extends State<Search> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              Text(widget.address.localidade)
+              Text(widget.address.logradouro)
             ],
           ),
           const SizedBox(height: 10),
@@ -79,7 +77,7 @@ class _SearchAddressState extends State<Search> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  Text(widget.address.complemento ?? '')
+                  Text(widget.address.complemento)
                 ],
               ),
             ),
@@ -94,7 +92,7 @@ class _SearchAddressState extends State<Search> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              Text('${widget.address.localidade}/${widget.address.uf}')
+              Text('${widget.address.logradouro}/${widget.address.uf}')
             ],
           ),
           const SizedBox(height: 10),

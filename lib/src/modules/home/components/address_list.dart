@@ -82,14 +82,14 @@ class _AddressListState extends State<AddressList> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      address.neighborhood,
+                      address.bairro,
                       style: const TextStyle(
                         fontSize: 15,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                     Text(
-                      address.publicPlace,
+                      address.localidade,
                       style: const TextStyle(
                         fontSize: 12,
                         //fontWeight: FontWeight.bold,
@@ -104,7 +104,7 @@ class _AddressListState extends State<AddressList> {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               Text(
-                '${address.city}, ${address.state}',
+                '${address.logradouro}, ${address.uf}',
                 style: const TextStyle(
                   color: Colors.black54,
                   fontSize: 15,

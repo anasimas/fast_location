@@ -1,46 +1,66 @@
 class AddressModel {
   late String cep;
-  late String publicPlace;
-  late String? complement;
-  late String neighborhood;
-  late String city;
-  late String state;
+  late String logradouro;
+  late String complemento;
+  late String bairro;
+  late String localidade;
+  late String uf;
+  late String ibge;
+  late String gia;
+  late String ddd;
+  late String siafi;
 
   AddressModel({
     required this.cep,
-    required this.publicPlace,
-    required this.complement,
-    required this.neighborhood,
-    required this.city,
-    required this.state,
+    required this.logradouro,
+    required this.complemento,
+    required this.bairro,
+    required this.localidade,
+    required this.uf,
+    required this.ibge,
+    required this.gia,
+    required this.ddd,
+    required this.siafi,
   });
 
   AddressModel.fromJson(Map<String, dynamic> json) {
-    cep = json["cep"];
-    publicPlace = json["logradouro"];
-    complement = json["complemento"] ?? '';
-    neighborhood = json["bairro"];
-    city = json["localidade"];
-    state = json["uf"];
+    cep = json['cep'];
+    logradouro = json['logradouro'];
+    complemento = json['complemento'] ?? '';
+    bairro = json['bairro'];
+    localidade = json['localidade'];
+    uf = json['uf'];
+    ibge = json['ibge'];
+    gia = json['gia'];
+    ddd = json['ddd'];
+    siafi = json['siafi'];
   }
 
   AddressModel.fromJsonLocal(Map<String, dynamic> json) {
-    cep = json["cep"];
-    publicPlace = json["publicPlace"];
-    complement = json["complement"] ?? '';
-    neighborhood = json["neighborhood"];
-    city = json["city"];
-    state = json["state"];
+    cep = json['cep'];
+    logradouro = json['logradouro'];
+    complemento = json['complemento'] ?? '';
+    bairro = json['bairro'];
+    localidade = json['localidade'];
+    uf = json['uf'];
+    ibge = json['ibge'];
+    gia = json['gia'];
+    ddd = json['ddd'];
+    siafi = json['siafi'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> json = <String, dynamic>{};
-    json["cep"] = cep;
-    json["publicPlace"] = publicPlace;
-    json["complement"] = complement;
-    json["neighborhood"] = neighborhood;
-    json["city"] = city;
-    json["state"] = state;
+    json['cep'] = cep;
+    json['logradouro'] = logradouro;
+    json['complemento'] = complemento;
+    json['bairro'] = bairro;
+    json['localidade'] = localidade;
+    json['uf'] = uf;
+    json['ibge'] = ibge;
+    json['gia'] = gia;
+    json['ddd'] = ddd;
+    json['siafi'] = siafi;
 
     return json;
   }

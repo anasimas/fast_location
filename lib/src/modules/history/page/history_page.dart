@@ -4,12 +4,44 @@ import 'package:fast_location/src/shared/colors/app_colors.dart';
 import 'package:fast_location/src/shared/components/app_loading.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'dart:convert';
+import 'package:fast_location/src/modules/home/model/address_model.dart';
 
 class HistoryPage extends StatefulWidget {
   const HistoryPage({super.key});
 
   @override
   State<HistoryPage> createState() => _HistoryPageState();
+}
+
+class SearchHistory {
+  static const _key = 'searchHistory';
+
+  Future<List<AddressModel>> getSearchHistory() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    List<String>? jsonList = prefs.getStringList(_key);
+    if (jsonList == null) {
+      return [];
+    }
+    return jsonList
+        .map((json) => AddressModel.fromJsonLocal(jsonDecode(json)))
+        .toList();
+  }
+
+  Future<void> addToSearchHistory(AddressModel address) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    List<AddressModel> history = await getSearchHistory();
+    history.insert(0, address);
+    List<String> jsonList =
+        history.map((address) => jsonEncode(address.toJson())).toList();
+    prefs.setStringList(_key, jsonList);
+  }
+
+  Future<void> clearSearchHistory() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.remove(_key);
+  }
 }
 
 class _HistoryPageState extends State<HistoryPage> {

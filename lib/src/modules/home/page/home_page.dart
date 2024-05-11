@@ -3,7 +3,7 @@ import 'dart:ui';
 
 import 'package:fast_location/src/shared/colors/app_colors.dart';
 import 'package:flutter/material.dart';
-import 'package:fast_location/src/modules/home/page/AlertDialog.dart';
+import 'package:fast_location/src/modules/home/page/result.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -98,20 +98,6 @@ class _HomePageState extends State<HomePage> {
                 ],
                 mainAxisAlignment: MainAxisAlignment.center,
               ),
-              Container(
-                  height: heightMedia * 0.2,
-                  width: widthMedia * 0.8,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15),
-                      color: Colors.white,
-                      boxShadow: [
-                        BoxShadow(color: Colors.white, blurRadius: 7)
-                      ]),
-                  child: Padding(
-                      padding: EdgeInsets.all(80),
-                      child: Column(children: [
-                        Icon(size: 20, color: Colors.green, Icons.place_sharp)
-                      ], mainAxisAlignment: MainAxisAlignment.spaceBetween))),
               ElevatedButton(
                   onPressed: null,
                   style: ButtonStyle(
